@@ -1,0 +1,26 @@
+[
+    {
+        "id": "b1238c1d.3606a",
+        "type": "watson-text-to-speech",
+        "z": "73b1cb8d.14bed4",
+        "name": "stt-lab",
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "voice": "en-US_AllisonVoice",
+        "voicehidden": "en-US_AllisonVoice",
+        "format": "audio/mp3",
+        "password": "Snz31lIw5uZZ",
+        "payload-response": true,
+        "default-endpoint": false,
+        "service-endpoint": "https://stream.watsonplatform.net/text-to-speech/api",
+        "x": 566,
+        "y": 187,
+        "wires": [
+            [
+                "dc10604c.75176"
+            ]
+        ]
+    }
+]
