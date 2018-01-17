@@ -1,5 +1,32 @@
 [
     {
+        "id": "5f68e1b0.18064",
+        "type": "change",
+        "z": "73b1cb8d.14bed4",
+        "name": "change payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "text",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 327,
+        "y": 222,
+        "wires": [
+            [
+                "9973f626.e224f8"
+            ]
+        ]
+    },
+    {
         "id": "c1d28b7a.b50c68",
         "type": "microphone",
         "z": "73b1cb8d.14bed4",
@@ -54,7 +81,7 @@
         "payload-response": true,
         "default-endpoint": false,
         "service-endpoint": "https://stream.watsonplatform.net/text-to-speech/api",
-        "x": 566,
+        "x": 741,
         "y": 187,
         "wires": [
             [
@@ -108,43 +135,20 @@
                 "t": "nnull"
             },
             {
-                "t": "else"
-            },
-            {
                 "t": "nnull"
             }
         ],
         "checkall": "true",
-        "outputs": 3,
-        "x": 204,
-        "y": 213,
+        "outputs": 2,
+        "x": 504,
+        "y": 182,
         "wires": [
             [
                 "b1238c1d.3606a"
             ],
             [
-                "8886a242.13a28"
-            ],
-            [
                 "b5f907da.0ecef8"
             ]
-        ]
-    },
-    {
-        "id": "8886a242.13a28",
-        "type": "template",
-        "z": "73b1cb8d.14bed4",
-        "name": "no output",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "UMMMMM Nothing Here?",
-        "output": "str",
-        "x": 247,
-        "y": 465,
-        "wires": [
-            []
         ]
     },
     {
@@ -155,8 +159,8 @@
         "active": true,
         "console": "false",
         "complete": "text",
-        "x": 356,
-        "y": 252,
+        "x": 526,
+        "y": 365,
         "wires": []
     },
     {
@@ -178,8 +182,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 567,
-        "y": 338,
+        "x": 770,
+        "y": 300,
         "wires": [
             [
                 "81fb8aaf.b2b928"
@@ -197,38 +201,11 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 153,
-        "y": 119,
+        "x": 129,
+        "y": 222,
         "wires": [
             [
                 "5f68e1b0.18064"
-            ]
-        ]
-    },
-    {
-        "id": "5f68e1b0.18064",
-        "type": "change",
-        "z": "73b1cb8d.14bed4",
-        "name": "change payload",
-        "rules": [
-            {
-                "t": "set",
-                "p": "text",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 343,
-        "y": 119,
-        "wires": [
-            [
-                "9973f626.e224f8"
             ]
         ]
     },
@@ -238,8 +215,8 @@
         "z": "73b1cb8d.14bed4",
         "name": "Output",
         "voice": "0",
-        "x": 574,
-        "y": 545,
+        "x": 763,
+        "y": 372,
         "wires": []
     }
 ]
