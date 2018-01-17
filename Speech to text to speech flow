@@ -1,5 +1,44 @@
 [
     {
+        "id": "c1d28b7a.b50c68",
+        "type": "microphone",
+        "z": "73b1cb8d.14bed4",
+        "name": "",
+        "x": 139,
+        "y": 73,
+        "wires": [
+            [
+                "411ca739.c3a898"
+            ]
+        ]
+    },
+    {
+        "id": "411ca739.c3a898",
+        "type": "watson-speech-to-text",
+        "z": "73b1cb8d.14bed4",
+        "name": "st-lab-speech-to--1516140963385",
+        "alternatives": 1,
+        "speakerlabels": false,
+        "smartformatting": false,
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "band": "NarrowbandModel",
+        "bandhidden": "",
+        "password": "jC3fNqxQomzG",
+        "payload-response": false,
+        "default-endpoint": true,
+        "service-endpoint": "https://stream.watsonplatform.net/speech-to-text/api",
+        "x": 393,
+        "y": 73,
+        "wires": [
+            [
+                "ec27c2da.915a3"
+            ]
+        ]
+    },
+    {
         "id": "b1238c1d.3606a",
         "type": "watson-text-to-speech",
         "z": "73b1cb8d.14bed4",
@@ -22,5 +61,185 @@
                 "dc10604c.75176"
             ]
         ]
+    },
+    {
+        "id": "ec27c2da.915a3",
+        "type": "change",
+        "z": "73b1cb8d.14bed4",
+        "name": "change payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "text",
+                "pt": "msg",
+                "to": "transcription",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "transcription",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 74,
+        "wires": [
+            [
+                "9973f626.e224f8"
+            ]
+        ]
+    },
+    {
+        "id": "9973f626.e224f8",
+        "type": "switch",
+        "z": "73b1cb8d.14bed4",
+        "name": "",
+        "property": "text",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            },
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 3,
+        "x": 204,
+        "y": 213,
+        "wires": [
+            [
+                "b1238c1d.3606a"
+            ],
+            [
+                "8886a242.13a28"
+            ],
+            [
+                "b5f907da.0ecef8"
+            ]
+        ]
+    },
+    {
+        "id": "8886a242.13a28",
+        "type": "template",
+        "z": "73b1cb8d.14bed4",
+        "name": "no output",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "UMMMMM Nothing Here?",
+        "output": "str",
+        "x": 247,
+        "y": 465,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b5f907da.0ecef8",
+        "type": "debug",
+        "z": "73b1cb8d.14bed4",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "text",
+        "x": 356,
+        "y": 252,
+        "wires": []
+    },
+    {
+        "id": "dc10604c.75176",
+        "type": "change",
+        "z": "73b1cb8d.14bed4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "speech",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 567,
+        "y": 338,
+        "wires": [
+            [
+                "81fb8aaf.b2b928"
+            ]
+        ]
+    },
+    {
+        "id": "b89d2500.a64a38",
+        "type": "inject",
+        "z": "73b1cb8d.14bed4",
+        "name": "Testing payload",
+        "topic": "",
+        "payload": "This is a test",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 153,
+        "y": 119,
+        "wires": [
+            [
+                "5f68e1b0.18064"
+            ]
+        ]
+    },
+    {
+        "id": "5f68e1b0.18064",
+        "type": "change",
+        "z": "73b1cb8d.14bed4",
+        "name": "change payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "text",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 343,
+        "y": 119,
+        "wires": [
+            [
+                "9973f626.e224f8"
+            ]
+        ]
+    },
+    {
+        "id": "81fb8aaf.b2b928",
+        "type": "play audio",
+        "z": "73b1cb8d.14bed4",
+        "name": "Output",
+        "voice": "0",
+        "x": 574,
+        "y": 545,
+        "wires": []
     }
 ]
